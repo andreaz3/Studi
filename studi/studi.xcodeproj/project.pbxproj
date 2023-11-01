@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF46E4892AF2AFB10038AA11 /* studiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E4882AF2AFB10038AA11 /* studiApp.swift */; };
+		DF46E48B2AF2AFB10038AA11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E48A2AF2AFB10038AA11 /* ContentView.swift */; };
+		DF46E48D2AF2AFB20038AA11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF46E48C2AF2AFB20038AA11 /* Assets.xcassets */; };
+		DF46E4912AF2AFB20038AA11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF46E4902AF2AFB20038AA11 /* Preview Assets.xcassets */; };
+		DF46E49B2AF2AFB20038AA11 /* studiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E49A2AF2AFB20038AA11 /* studiTests.swift */; };
+		DF46E4A52AF2AFB20038AA11 /* studiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E4A42AF2AFB20038AA11 /* studiUITests.swift */; };
+		DF46E4A72AF2AFB20038AA11 /* studiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DF46E4972AF2AFB20038AA11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF46E47D2AF2AFB10038AA11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF46E4842AF2AFB10038AA11;
+			remoteInfo = studi;
+		};
+		DF46E4A12AF2AFB20038AA11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF46E47D2AF2AFB10038AA11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF46E4842AF2AFB10038AA11;
+			remoteInfo = studi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DF46E4852AF2AFB10038AA11 /* studi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF46E4882AF2AFB10038AA11 /* studiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiApp.swift; sourceTree = "<group>"; };
+		DF46E48A2AF2AFB10038AA11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DF46E48C2AF2AFB20038AA11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF46E48E2AF2AFB20038AA11 /* studi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = studi.entitlements; sourceTree = "<group>"; };
+		DF46E4902AF2AFB20038AA11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DF46E4962AF2AFB20038AA11 /* studiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = studiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF46E49A2AF2AFB20038AA11 /* studiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiTests.swift; sourceTree = "<group>"; };
+		DF46E4A02AF2AFB20038AA11 /* studiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = studiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF46E4A42AF2AFB20038AA11 /* studiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiUITests.swift; sourceTree = "<group>"; };
+		DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF46E4822AF2AFB10038AA11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF46E4932AF2AFB20038AA11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF46E49D2AF2AFB20038AA11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DF46E47C2AF2AFB10038AA11 = {
+			isa = PBXGroup;
+			children = (
+				DF46E4872AF2AFB10038AA11 /* studi */,
+				DF46E4992AF2AFB20038AA11 /* studiTests */,
+				DF46E4A32AF2AFB20038AA11 /* studiUITests */,
+				DF46E4862AF2AFB10038AA11 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DF46E4862AF2AFB10038AA11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF46E4852AF2AFB10038AA11 /* studi.app */,
+				DF46E4962AF2AFB20038AA11 /* studiTests.xctest */,
+				DF46E4A02AF2AFB20038AA11 /* studiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF46E4872AF2AFB10038AA11 /* studi */ = {
+			isa = PBXGroup;
+			children = (
+				DF46E4882AF2AFB10038AA11 /* studiApp.swift */,
+				DF46E48A2AF2AFB10038AA11 /* ContentView.swift */,
+				DF46E48C2AF2AFB20038AA11 /* Assets.xcassets */,
+				DF46E48E2AF2AFB20038AA11 /* studi.entitlements */,
+				DF46E48F2AF2AFB20038AA11 /* Preview Content */,
+			);
+			path = studi;
+			sourceTree = "<group>";
+		};
+		DF46E48F2AF2AFB20038AA11 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DF46E4902AF2AFB20038AA11 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DF46E4992AF2AFB20038AA11 /* studiTests */ = {
+			isa = PBXGroup;
+			children = (
+				DF46E49A2AF2AFB20038AA11 /* studiTests.swift */,
+			);
+			path = studiTests;
+			sourceTree = "<group>";
+		};
+		DF46E4A32AF2AFB20038AA11 /* studiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DF46E4A42AF2AFB20038AA11 /* studiUITests.swift */,
+				DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */,
+			);
+			path = studiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DF46E4842AF2AFB10038AA11 /* studi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF46E4AA2AF2AFB20038AA11 /* Build configuration list for PBXNativeTarget "studi" */;
+			buildPhases = (
+				DF46E4812AF2AFB10038AA11 /* Sources */,
+				DF46E4822AF2AFB10038AA11 /* Frameworks */,
+				DF46E4832AF2AFB10038AA11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = studi;
+			productName = studi;
+			productReference = DF46E4852AF2AFB10038AA11 /* studi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DF46E4952AF2AFB20038AA11 /* studiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF46E4AD2AF2AFB20038AA11 /* Build configuration list for PBXNativeTarget "studiTests" */;
+			buildPhases = (
+				DF46E4922AF2AFB20038AA11 /* Sources */,
+				DF46E4932AF2AFB20038AA11 /* Frameworks */,
+				DF46E4942AF2AFB20038AA11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF46E4982AF2AFB20038AA11 /* PBXTargetDependency */,
+			);
+			name = studiTests;
+			productName = studiTests;
+			productReference = DF46E4962AF2AFB20038AA11 /* studiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DF46E49F2AF2AFB20038AA11 /* studiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF46E4B02AF2AFB20038AA11 /* Build configuration list for PBXNativeTarget "studiUITests" */;
+			buildPhases = (
+				DF46E49C2AF2AFB20038AA11 /* Sources */,
+				DF46E49D2AF2AFB20038AA11 /* Frameworks */,
+				DF46E49E2AF2AFB20038AA11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF46E4A22AF2AFB20038AA11 /* PBXTargetDependency */,
+			);
+			name = studiUITests;
+			productName = studiUITests;
+			productReference = DF46E4A02AF2AFB20038AA11 /* studiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF46E47D2AF2AFB10038AA11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					DF46E4842AF2AFB10038AA11 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					DF46E4952AF2AFB20038AA11 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DF46E4842AF2AFB10038AA11;
+					};
+					DF46E49F2AF2AFB20038AA11 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DF46E4842AF2AFB10038AA11;
+					};
+				};
+			};
+			buildConfigurationList = DF46E4802AF2AFB10038AA11 /* Build configuration list for PBXProject "studi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF46E47C2AF2AFB10038AA11;
+			productRefGroup = DF46E4862AF2AFB10038AA11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF46E4842AF2AFB10038AA11 /* studi */,
+				DF46E4952AF2AFB20038AA11 /* studiTests */,
+				DF46E49F2AF2AFB20038AA11 /* studiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF46E4832AF2AFB10038AA11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF46E4912AF2AFB20038AA11 /* Preview Assets.xcassets in Resources */,
+				DF46E48D2AF2AFB20038AA11 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF46E4942AF2AFB20038AA11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF46E49E2AF2AFB20038AA11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF46E4812AF2AFB10038AA11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF46E48B2AF2AFB10038AA11 /* ContentView.swift in Sources */,
+				DF46E4892AF2AFB10038AA11 /* studiApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF46E4922AF2AFB20038AA11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF46E49B2AF2AFB20038AA11 /* studiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF46E49C2AF2AFB20038AA11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF46E4A72AF2AFB20038AA11 /* studiUITestsLaunchTests.swift in Sources */,
+				DF46E4A52AF2AFB20038AA11 /* studiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DF46E4982AF2AFB20038AA11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF46E4842AF2AFB10038AA11 /* studi */;
+			targetProxy = DF46E4972AF2AFB20038AA11 /* PBXContainerItemProxy */;
+		};
+		DF46E4A22AF2AFB20038AA11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF46E4842AF2AFB10038AA11 /* studi */;
+			targetProxy = DF46E4A12AF2AFB20038AA11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DF46E4A82AF2AFB20038AA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DF46E4A92AF2AFB20038AA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		DF46E4AB2AF2AFB20038AA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = studi/studi.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"studi/Preview Content\"";
+				DEVELOPMENT_TEAM = Y8M36A5KCQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DF46E4AC2AF2AFB20038AA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = studi/studi.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"studi/Preview Content\"";
+				DEVELOPMENT_TEAM = Y8M36A5KCQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DF46E4AE2AF2AFB20038AA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8M36A5KCQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/studi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/studi";
+			};
+			name = Debug;
+		};
+		DF46E4AF2AF2AFB20038AA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8M36A5KCQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/studi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/studi";
+			};
+			name = Release;
+		};
+		DF46E4B12AF2AFB20038AA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8M36A5KCQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = studi;
+			};
+			name = Debug;
+		};
+		DF46E4B22AF2AFB20038AA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8M36A5KCQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = studi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF46E4802AF2AFB10038AA11 /* Build configuration list for PBXProject "studi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF46E4A82AF2AFB20038AA11 /* Debug */,
+				DF46E4A92AF2AFB20038AA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF46E4AA2AF2AFB20038AA11 /* Build configuration list for PBXNativeTarget "studi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF46E4AB2AF2AFB20038AA11 /* Debug */,
+				DF46E4AC2AF2AFB20038AA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF46E4AD2AF2AFB20038AA11 /* Build configuration list for PBXNativeTarget "studiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF46E4AE2AF2AFB20038AA11 /* Debug */,
+				DF46E4AF2AF2AFB20038AA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF46E4B02AF2AFB20038AA11 /* Build configuration list for PBXNativeTarget "studiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF46E4B12AF2AFB20038AA11 /* Debug */,
+				DF46E4B22AF2AFB20038AA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF46E47D2AF2AFB10038AA11 /* Project object */;
+}
