@@ -14,6 +14,14 @@
 		DF46E49B2AF2AFB20038AA11 /* studiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E49A2AF2AFB20038AA11 /* studiTests.swift */; };
 		DF46E4A52AF2AFB20038AA11 /* studiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E4A42AF2AFB20038AA11 /* studiUITests.swift */; };
 		DF46E4A72AF2AFB20038AA11 /* studiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */; };
+		DF878F712AF48D0B00158126 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F702AF48D0B00158126 /* InfoView.swift */; };
+		DF878F732AF48D4000158126 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F722AF48D4000158126 /* ReviewsView.swift */; };
+		DF878F752AF48D5B00158126 /* CreateReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F742AF48D5B00158126 /* CreateReviewView.swift */; };
+		DF878F772AF48D7200158126 /* CreateStudySpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F762AF48D7200158126 /* CreateStudySpotView.swift */; };
+		DF878F792AF48DBA00158126 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F782AF48DBA00158126 /* CheckInView.swift */; };
+		DF878F7B2AF48DD500158126 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F7A2AF48DD500158126 /* InsightsView.swift */; };
+		DF878F7D2AF492F300158126 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F7C2AF492F300158126 /* ProfileView.swift */; };
+		DF878F7F2AF4AB3C00158126 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878F7E2AF4AB3C00158126 /* UpdateInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		DF46E4A02AF2AFB20038AA11 /* studiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = studiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF46E4A42AF2AFB20038AA11 /* studiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiUITests.swift; sourceTree = "<group>"; };
 		DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DF878F702AF48D0B00158126 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		DF878F722AF48D4000158126 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
+		DF878F742AF48D5B00158126 /* CreateReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReviewView.swift; sourceTree = "<group>"; };
+		DF878F762AF48D7200158126 /* CreateStudySpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudySpotView.swift; sourceTree = "<group>"; };
+		DF878F782AF48DBA00158126 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		DF878F7A2AF48DD500158126 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		DF878F7C2AF492F300158126 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DF878F7E2AF4AB3C00158126 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,14 @@
 			children = (
 				DF46E4882AF2AFB10038AA11 /* studiApp.swift */,
 				DF46E48A2AF2AFB10038AA11 /* ContentView.swift */,
+				DF878F7E2AF4AB3C00158126 /* UpdateInfoView.swift */,
+				DF878F7C2AF492F300158126 /* ProfileView.swift */,
+				DF878F702AF48D0B00158126 /* InfoView.swift */,
+				DF878F722AF48D4000158126 /* ReviewsView.swift */,
+				DF878F742AF48D5B00158126 /* CreateReviewView.swift */,
+				DF878F762AF48D7200158126 /* CreateStudySpotView.swift */,
+				DF878F782AF48DBA00158126 /* CheckInView.swift */,
+				DF878F7A2AF48DD500158126 /* InsightsView.swift */,
 				DF46E48C2AF2AFB20038AA11 /* Assets.xcassets */,
 				DF46E48E2AF2AFB20038AA11 /* studi.entitlements */,
 				DF46E48F2AF2AFB20038AA11 /* Preview Content */,
@@ -259,8 +283,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF878F772AF48D7200158126 /* CreateStudySpotView.swift in Sources */,
+				DF878F7D2AF492F300158126 /* ProfileView.swift in Sources */,
+				DF878F7B2AF48DD500158126 /* InsightsView.swift in Sources */,
+				DF878F792AF48DBA00158126 /* CheckInView.swift in Sources */,
+				DF878F732AF48D4000158126 /* ReviewsView.swift in Sources */,
+				DF878F7F2AF4AB3C00158126 /* UpdateInfoView.swift in Sources */,
 				DF46E48B2AF2AFB10038AA11 /* ContentView.swift in Sources */,
+				DF878F712AF48D0B00158126 /* InfoView.swift in Sources */,
 				DF46E4892AF2AFB10038AA11 /* studiApp.swift in Sources */,
+				DF878F752AF48D5B00158126 /* CreateReviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +451,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow Studi to find study spots closest to you";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -437,10 +470,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,6 +492,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow Studi to find study spots closest to you";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -475,10 +511,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uiuc.studi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
