@@ -61,6 +61,7 @@
 		DF878F7A2AF48DD500158126 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		DF878F7C2AF492F300158126 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DF878F7E2AF4AB3C00158126 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
+		DF9147FE2AFEC9CB00CEA13B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +112,7 @@
 		DF46E4872AF2AFB10038AA11 /* studi */ = {
 			isa = PBXGroup;
 			children = (
+				DF9147FE2AFEC9CB00CEA13B /* Info.plist */,
 				DF46E4882AF2AFB10038AA11 /* studiApp.swift */,
 				DF46E48A2AF2AFB10038AA11 /* ContentView.swift */,
 				DF878F7E2AF4AB3C00158126 /* UpdateInfoView.swift */,
@@ -451,7 +453,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = studi/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow Studi to find study spots closest to you";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to let you attach pictures of your study spot.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -492,7 +496,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = studi/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow Studi to find study spots closest to you";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to let you attach pictures of your study spot.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
