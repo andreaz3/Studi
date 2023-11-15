@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DBAF2C3F-DD1D-4499-A378-17264734A786"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2CD3F9E-A58A-4568-8178-60C246F091C1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "studi/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "ContentView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "F2CD3F9E-A58A-4568-8178-60C246F091C1 - 58fce1a5a756cb7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in variable initialization expression of studi.ContentView.reviews : () -&gt; ()"
+                  moduleName = "studi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alihusain/Documents/CS%20411/Studi/studi/studi/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F2CD3F9E-A58A-4568-8178-60C246F091C1 - 218eb6891b0d9b7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "studi.ContentView.init() -&gt; studi.ContentView"
+                  moduleName = "studi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alihusain/Documents/CS%20411/Studi/studi/studi/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

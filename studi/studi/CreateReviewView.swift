@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+
+
 struct CreateReviewView: View {
     @State private var wifiStrength: Double = 0
     @State private var noiseLevel: Double = 0
@@ -73,8 +76,33 @@ struct CreateReviewView: View {
                         }
                         
                         Button("Post Review") {
-                            // Handle the post review action
+                            // Get the current date
+                            let currentDate = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .none)
+
+                            // Create a new review based on user input
+                            let new_review = Review(
+                                id: reviews.count + 1, // Use a unique ID (you can use a better mechanism for generating IDs)
+                                user_name: "Your Username", // Replace with the actual username
+                                date: currentDate,
+                                wifiRating: wifiStrength,
+                                noiseLevelRating: noiseLevel,
+                                foodRating: foodQuality,
+                                drinkRating: drinkQuality,
+                                imageURL: "https://example.com/image1.jpg", // Replace with an actual image URL
+                                description: additionalNotes
+                            )
+
+                            // Append the new review to the reviews array
+                            reviews.append(new_review)
+
+                            // Optionally, reset the form fields
+                            wifiStrength = 0
+                            noiseLevel = 0
+                            foodQuality = 0
+                            drinkQuality = 0
+                            additionalNotes = ""
                         }
+
                     }
                 }
                 
