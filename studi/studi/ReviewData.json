@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "wifiStrength": 4,
+        "noiseLevel": 2,
+        "foodQuality": 5,
+        "drinkQuality": 4,
+        "additionalNotes": "The environment is elegant, great for studying and working. Food is delicious, but there's occasional noise.",
+        "imageNames": ["img1.png", "img2.png"]
+    },
+    {
+        "id": 2,
+        "wifiStrength": 2,
+        "noiseLevel": 3,
+        "foodQuality": 3,
+        "drinkQuality": 2,
+        "additionalNotes": "WiFi is often unstable, not ideal for work requiring stable connection. Food and drinks are average.",
+        "imageNames": ["img3.png"]
+    },
+    {
+        "id": 3,
+        "wifiStrength": 5,
+        "noiseLevel": 1,
+        "foodQuality": 4,
+        "drinkQuality": 5,
+        "additionalNotes": "Excellent WiFi and quiet environment. The drinks are superb and the food is very good.",
+        "imageNames": ["img4.png"]
+    }
+]
