@@ -19,7 +19,7 @@ struct CreateReviewView: View {
             NavigationView {
                 VStack{
                     HStack{
-                        NavigationLink(destination: ReviewsView()) { // Change to NavigationLink to navigate to ReviewsView
+                        NavigationLink(destination: ContentView()) { // Change to NavigationLink to navigate to ReviewsView
                                             Image(systemName: "arrow.backward") // Use a system image for back arrow
                                                 .resizable()
                                                 .frame(width: 30, height: 30) // Adjust size as needed
