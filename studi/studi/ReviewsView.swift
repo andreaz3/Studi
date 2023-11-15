@@ -12,8 +12,9 @@ struct Review: Identifiable, Decodable {
     var description: String
 }
 
-struct ReviewView: View {
+struct ReviewsView: View {
     var review: Review
+    @State private var showingCreateReview = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -63,6 +64,22 @@ struct ReviewView: View {
         .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 3)
+        .navigationBarTitle(SelectedStudySpot.name, displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: {
+                // Action for the plus button
+                showingCreateReview = true
+            }) {
+                Image(systemName: "plus")
+            }
+        )
+        .background(
+            NavigationLink(
+                destination: CreateReviewView(),
+                isActive: $showingCreateReview,
+                label: { EmptyView() }
+            )
+        )
     }
 }
 struct ReviewsListView: View {
@@ -74,7 +91,7 @@ struct ReviewsListView: View {
     var body: some View {
         ScrollView {
             ForEach(reviews) { review in
-                ReviewView(review: review)
+                ReviewsView(review: review)
                     .frame(maxWidth: .infinity)
                     .padding(10)
             }

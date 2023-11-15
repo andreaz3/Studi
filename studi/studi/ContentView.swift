@@ -20,6 +20,8 @@ extension CLLocationCoordinate2D: Identifiable {
     }
 }
 
+var SelectedStudySpot: StudySpot = StudySpot(name: "",coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
+
 final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     
@@ -94,6 +96,7 @@ struct ContentView: View {
     @State private var isSearching = false
     @State var selection: Int? = nil
     @State private var isShowingCreateStudySpot = false
+    @State private var isShowingCreateReview = false
     
     var body: some View {
         NavigationView{
@@ -101,8 +104,10 @@ struct ContentView: View {
                 Map(coordinateRegion: $manager.region, showsUserLocation: true, annotationItems: studySpots) {
                         (studySpot) in
                         MapAnnotation(coordinate: studySpot.coordinate) {
-                            NavigationLink(destination: InfoView(), tag:1, selection: $selection) {
-                                Button(action: {  self.selection = 1}, label: {
+                            NavigationLink(destination: ReviewsListView(), tag:1, selection: $selection) {
+                                Button(action: {  self.selection = 1
+                                    SelectedStudySpot = studySpot
+                                }, label: {
                                     Image(systemName: "mappin.circle").resizable()
                                         .frame(width: 30, height: 30)
                                         .foregroundColor(.red)
