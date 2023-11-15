@@ -93,7 +93,8 @@ struct ContentView: View {
     @State private var searchText: String = ""
     @State private var isSearching = false
     @State var selection: Int? = nil
-        
+    @State private var isShowingCreateStudySpot = false
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -131,9 +132,14 @@ struct ContentView: View {
                             }
                         if showToolbar {
                             VStack(spacing: 10) {
-                                NavigationLink(destination: CreateStudySpotView()) {
-                                    Label("Add New Study Spot", systemImage: "doc.badge.plus")
-                                }
+                                NavigationLink("Add New Study Spot", isActive: $isShowingCreateStudySpot) {
+                                                // 1
+                                    CreateStudySpotView(isShowing: $isShowingCreateStudySpot)
+
+                                            }
+//                                NavigationLink(destination: CreateStudySpotView(isShowing: $isShowingCreateStudySpot)) {
+//                                    Label("Add New Study Spot", systemImage: "doc.badge.plus")
+//                                }
                                 Divider()
                                 NavigationLink(destination: CheckInView()) {
                                     Label("Check In", systemImage: "checkmark.circle")
