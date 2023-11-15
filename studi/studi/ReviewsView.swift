@@ -12,12 +12,18 @@ struct Review: Identifiable, Decodable {
     var description: String
 }
 
+var reviews: [Review] = [
+    Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 4.5, noiseLevelRating: 3.0, foodRating: 4.0, drinkRating: 5.0, imageURL: "https://example.com/image1.jpg", description: "Great spot with strong wifi and delicious coffee!"),
+    Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 3.5, noiseLevelRating: 2.5, foodRating: 3.0, drinkRating: 4.5, imageURL: "https://example.com/image2.jpg", description: "Cozy place, perfect for long study sessions.")
+]
+
 struct ReviewsView: View {
     var review: Review
     @State private var showingCreateReview = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            
             HStack{
                 Text("\(review.date)")
                 
@@ -83,17 +89,25 @@ struct ReviewsView: View {
     }
 }
 struct ReviewsListView: View {
-    @State var reviews: [Review] = [
-        Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 4.5, noiseLevelRating: 3.0, foodRating: 4.0, drinkRating: 5.0, imageURL: "https://example.com/image1.jpg", description: "Great spot with strong wifi and delicious coffee!"),
-        Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 3.5, noiseLevelRating: 2.5, foodRating: 3.0, drinkRating: 4.5, imageURL: "https://example.com/image2.jpg", description: "Cozy place, perfect for long study sessions.")
-    ]
-
     var body: some View {
         ScrollView {
             ForEach(reviews) { review in
                 ReviewsView(review: review)
                     .frame(maxWidth: .infinity)
                     .padding(10)
+                VStack{
+                    Text("REVIEWS")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 25).foregroundColor(.gray)
+                    ScrollView {
+                        ForEach(reviews) { review in
+                            ReviewsView(review: review)
+                                .frame(maxWidth: .infinity)
+                                .padding(10)
+                        }
+                    }
+                }
             }
         }
     }
