@@ -52,6 +52,7 @@
 		DF46E4A02AF2AFB20038AA11 /* studiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = studiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF46E4A42AF2AFB20038AA11 /* studiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiUITests.swift; sourceTree = "<group>"; };
 		DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DF4DC7F12B053D5D009BDDC5 /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = gpxgenerator_path.gpx; path = ../../gpxgenerator_path.gpx; sourceTree = "<group>"; };
 		DF878F702AF48D0B00158126 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		DF878F722AF48D4000158126 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
 		DF878F742AF48D5B00158126 /* CreateReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReviewView.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		DF46E47C2AF2AFB10038AA11 = {
 			isa = PBXGroup;
 			children = (
+				DF4DC7F12B053D5D009BDDC5 /* gpxgenerator_path.gpx */,
 				DF46E4872AF2AFB10038AA11 /* studi */,
 				DF46E4992AF2AFB20038AA11 /* studiTests */,
 				DF46E4A32AF2AFB20038AA11 /* studiUITests */,
