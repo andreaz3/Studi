@@ -49,6 +49,36 @@
                   endingLineNumber = "86"
                   offsetFromSymbolStart = "304">
                </Location>
+               <Location
+                  uuid = "F2CD3F9E-A58A-4568-8178-60C246F091C1 - b2f56764b650d253"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in variable initialization expression of studi.ContentView.studySpotInfo : () -&gt; ()"
+                  moduleName = "studi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alihusain/Documents/CS%20411/Studi/studi/studi/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F2CD3F9E-A58A-4568-8178-60C246F091C1 - 218eb6891b0d9b7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "studi.ContentView.init() -&gt; studi.ContentView"
+                  moduleName = "studi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alihusain/Documents/CS%20411/Studi/studi/studi/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "284">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

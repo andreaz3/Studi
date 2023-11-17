@@ -91,15 +91,11 @@ struct ReviewsView: View {
 struct ReviewsListView: View {
     var body: some View {
         ScrollView {
-            ForEach(reviews) { review in
-                ReviewsView(review: review)
-                    .frame(maxWidth: .infinity)
-                    .padding(10)
+            Text("REVIEWS")
+                .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 25).foregroundColor(.gray)
                 VStack{
-                    Text("REVIEWS")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 25).foregroundColor(.gray)
                     ScrollView {
                         ForEach(reviews) { review in
                             ReviewsView(review: review)
@@ -111,7 +107,6 @@ struct ReviewsListView: View {
             }
         }
     }
-}
 
 struct ReviewsView_Preview: PreviewProvider {
     static var previews: some View {

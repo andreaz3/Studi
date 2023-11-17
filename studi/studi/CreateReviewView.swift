@@ -110,4 +110,10 @@ struct CreateReviewView: View {
     }
 }
 
+struct CreateReviewsView_Preview: PreviewProvider {
+    static var previews: some View {
+        CreateReviewView()
+    }
+}
+
 
