@@ -80,7 +80,10 @@ struct ContentView: View {
         StudySpot(name: "Cafe Paradiso",
                   coordinate: CLLocationCoordinate2D(latitude: 40.106205435739792, longitude: -88.21924183863197)),
         StudySpot(name: "Grainger Library",
-                coordinate: CLLocationCoordinate2D(latitude: 40.11345149750377, longitude: -88.2269172))
+                coordinate: CLLocationCoordinate2D(latitude: 40.11345149750377, longitude: -88.2269172)),
+        StudySpot(name: "Peet's Coffee",
+                coordinate:
+                    CLLocationCoordinate2D(latitude: 37.78606782572351, longitude: -122.40512616318732))
     ]
     // {name: coordinates}
     var studySpotInfo = {}
@@ -189,9 +192,10 @@ struct ContentView: View {
             }
         }
     }
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+    
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
