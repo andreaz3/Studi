@@ -76,7 +76,16 @@ extension LocationManager: CLLocationManagerDelegate {
 
 
 struct ContentView: View {
-    var studySpots:[StudySpot] = [
+    @State var studySpots:[StudySpot] = [
+        StudySpot(name: "Cafe Paradiso",
+                  coordinate: CLLocationCoordinate2D(latitude: 40.106205435739792, longitude: -88.21924183863197)),
+        StudySpot(name: "Grainger Library",
+                coordinate: CLLocationCoordinate2D(latitude: 40.11345149750377, longitude: -88.2269172)),
+        StudySpot(name: "Peet's Coffee",
+                coordinate:
+                    CLLocationCoordinate2D(latitude: 37.78606782572351, longitude: -122.40512616318732))
+    ]
+    @State var filteredStudySpots:[StudySpot] = [
         StudySpot(name: "Cafe Paradiso",
                   coordinate: CLLocationCoordinate2D(latitude: 40.106205435739792, longitude: -88.21924183863197)),
         StudySpot(name: "Grainger Library",
@@ -100,11 +109,11 @@ struct ContentView: View {
     @State var selection: Int? = nil
     @State private var isShowingCreateStudySpot = false
     @State private var isShowingCreateReview = false
-    
+
     var body: some View {
         NavigationView{
             ZStack {
-                Map(coordinateRegion: $manager.region, showsUserLocation: true, annotationItems: studySpots) {
+                Map(coordinateRegion: $manager.region, showsUserLocation: true, annotationItems: filteredStudySpots) {
                         (studySpot) in
                         MapAnnotation(coordinate: studySpot.coordinate) {
                             NavigationLink(destination: ReviewsListView(), tag:1, selection: $selection) {
@@ -186,16 +195,28 @@ struct ContentView: View {
                             .onTapGesture {
                                 isSearching = true
                             }
+                            .onChange(of: searchText, perform: { value in
+                                    filterStudySpots()
+                                })
                     }
                     .padding()
                 }
             }
         }
     }
-    
+    func filterStudySpots() {
+        if searchText.isEmpty {
+            filteredStudySpots = studySpots // Assuming 'studySpots' is your original array
+        } else {
+            filteredStudySpots = studySpots.filter { spot in
+                spot.name.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
