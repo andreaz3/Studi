@@ -17,9 +17,9 @@ struct CheckInView: View {
     @State private var noiseLevel = 50.0
     @State private var capLevel = 50.0
     
-    @State private var isStopwatchRunning = false
-    @State private var stopwatchTimeInSeconds = 0
-    @State private var timer: Timer?
+    @ObservedObject var stopwatchViewModel: StopwatchViewModel
+    
+    @Binding var isShowing: Bool
     
     var body: some View {
 
@@ -66,7 +66,7 @@ struct CheckInView: View {
                         Text("Quiet")
                     } maximumValueLabel: {
                         Text("Loud")
-                    }.disabled(selectedItem == nil || isStopwatchRunning == true)
+                    }.disabled(selectedItem == nil || stopwatchViewModel.isStopwatchRunning == true)
                     // Do we want to allow them to record the value ?
                     //                Text("\(level)")
                 }.padding(20)
@@ -82,23 +82,25 @@ struct CheckInView: View {
                         Text("Empty")
                     } maximumValueLabel: {
                         Text("Full")
-                    }.disabled(selectedItem == nil || isStopwatchRunning == true)
+                    }.disabled(selectedItem == nil || stopwatchViewModel.isStopwatchRunning == true)
                 }.padding(20)
                 
                 VStack {
-                    Text(timeFormatted(stopwatchTimeInSeconds))
+                    Text(timeFormatted(stopwatchViewModel.stopwatchTimeInSeconds))
                         .font(.largeTitle)
                         .padding()
                     
                     Button(action: {
-                        self.toggleStopwatch()
+                        stopwatchViewModel.startStopwatch()
+                        isShowing = false
                     }) {
-                        Text(isStopwatchRunning ? "Check Out" : "Check In")
+                        Text(stopwatchViewModel.isStopwatchRunning ? "Check Out" : "Check In")
                             .foregroundColor(.white)
                             .padding()
-                            .background(selectedItem == nil ? Color.gray : (isStopwatchRunning ? Color.red : Color.green))
+                            .background(selectedItem == nil ? Color.gray : (stopwatchViewModel.isStopwatchRunning ? Color.red : Color.green))
                             .cornerRadius(10)
-                    }.disabled(selectedItem == nil)
+                        
+                    }
                 }
                 
             }
@@ -118,6 +120,7 @@ struct CheckInView: View {
             }
         
         }
+        .navigationBarTitle("Check In")
 //        .simultaneousGesture(
 //            TapGesture().onEnded {
 //                isDropdownVisible = false
@@ -136,34 +139,5 @@ struct CheckInView: View {
     private func hideKeyboard() {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
-    
-    func toggleStopwatch() {
-        if isStopwatchRunning {
-            // TODO: Record time to backend
-            timer?.invalidate()
-            timer = nil
-            stopwatchTimeInSeconds = 0
-            
-        } else {
-            // Start the stopwatch
-            stopwatchTimeInSeconds = 0
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                self.stopwatchTimeInSeconds += 1
-            }
-        }
-        isStopwatchRunning.toggle()
-    }
-    
-    func timeFormatted(_ totalSeconds: Int) -> String {
-        let seconds: Int = totalSeconds % 60
-        let minutes: Int = (totalSeconds / 60) % 60
-        let hours: Int = totalSeconds / 3600
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    }
 }
 
-struct CheckInView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckInView()
-    }
-}

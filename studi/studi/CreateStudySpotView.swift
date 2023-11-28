@@ -12,20 +12,43 @@ import Combine
 
 struct CreateStudySpotView: View {
     @Binding var isShowing: Bool
+    @Binding var studySpots: [StudySpot]
+    @Binding var filteredStudySpots: [StudySpot]
     @StateObject private var viewModel = CreateStudySpotViewModel()
-    @State private var selectedItemTitle: String?
+    @State private var selectedItem: LocalSearchViewData?
+    
     
     @State private var hasCoffee = false
     @State private var hasFood = false
     @State private var wifiStrength = 0.5
     @State private var noiseLevel = 0.5
-    @State private var hours: [Bool] = Array(repeating: false, count: 7)
     
     // Define a struct to hold the open and close times for each day
     struct DayHours {
         var openTime: Date
         var closeTime: Date
     }
+    private var noiseLevelText: String {
+        switch noiseLevel {
+        case 0:
+            return "No Noise"
+        case 0.5:
+            return "Some Noise"
+        default:
+            return "Loud"
+        }
+    }
+    
+    private var wifiLevelText: String {
+            switch wifiStrength {
+            case 0:
+                return "No WiFi"
+            case 0.5:
+                return "Unreliable WiFi"
+            default:
+                return "Great WiFi"
+            }
+        }
     
     @State private var showingConfirmation = false
     @State private var showingImagePicker = false
@@ -38,9 +61,9 @@ struct CreateStudySpotView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                if let selectedItemTitle = selectedItemTitle {
+                if let selectedItem = selectedItem {
                     // If selectedItemTitle is not nil, display the label with the title
-                    Text(selectedItemTitle).font(.largeTitle).frame(maxWidth: .infinity, alignment: .topLeading)
+                    Text(selectedItem.title).font(.largeTitle).frame(maxWidth: .infinity, alignment: .topLeading)
                     NavigationView {
                         Form {
                             Section {
@@ -51,13 +74,15 @@ struct CreateStudySpotView: View {
                             Section {
                                 HStack {
                                     Text("WiFi")
-                                    Slider(value: $wifiStrength, in: 0...1, step: 0.1)
+                                    Slider(value: $wifiStrength, in: 0...1, step: 0.5)
                                         .accentColor(.black)
+                                    Text(wifiLevelText).frame(width:100, alignment: .leading)
                                 }
                                 HStack {
                                     Text("Noise")
-                                    Slider(value: $noiseLevel, in: 0...1, step: 0.1)
+                                    Slider(value: $noiseLevel, in: 0...1, step: 0.5)
                                         .accentColor(.black)
+                                    Text(noiseLevelText).frame(width:100, alignment: .leading)
                                 }
                             }
                             
@@ -96,9 +121,39 @@ struct CreateStudySpotView: View {
                                 }.sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                                     ImagePicker(image: self.$inputImage)
                                 }
+                                if let selectedImage = inputImage {
+                                    Image(uiImage: selectedImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                }
                                 Section {
                                     Button("Submit") {
+                                        let newStudySpot = StudySpot(
+                                            name: selectedItem.title,
+                                            coordinate: selectedItem.coordinate,
+                                            mondayOpen: weekHours[0].openTime,
+                                            mondayClose: weekHours[0].closeTime,
+                                            tuesdayOpen: weekHours[1].openTime,
+                                            tuesdayClose: weekHours[1].closeTime,
+                                            wednesdayOpen: weekHours[2].openTime,
+                                            wednesdayClose: weekHours[2].closeTime,
+                                            thursdayOpen: weekHours[3].openTime,
+                                            thursdayClose: weekHours[3].closeTime,
+                                            fridayOpen: weekHours[4].openTime,
+                                            fridayClose: weekHours[4].closeTime,
+                                            saturdayOpen: weekHours[5].openTime,
+                                            saturdayClose: weekHours[5].closeTime,
+                                            sundayOpen: weekHours[6].openTime,
+                                            sundayClose: weekHours[6].closeTime,
+                                            image: inputImage,
+                                            hasCoffee: hasCoffee,
+                                            hasFood: hasFood,
+                                            noiseLevel: noiseLevel,
+                                            wifiLevel: wifiStrength
+                                        )
                                         isShowing = false
+                                        studySpots.append(newStudySpot)
+                                        filteredStudySpots.append(newStudySpot)
                                     }
                                 }
                             }
@@ -123,7 +178,7 @@ struct CreateStudySpotView: View {
             .padding(.horizontal)
             .padding(.top)
             .ignoresSafeArea(edges: .bottom)
-        }
+        }.navigationBarTitle("Add New Study Spot", displayMode: .inline)
     }
     func loadImage() {
         // Implement image processing if needed
@@ -137,7 +192,7 @@ struct CreateStudySpotView: View {
     func buttonAction(itemValue: LocalSearchViewData){
         // clear list
         // create label with itemValue.title
-        selectedItemTitle = itemValue.title
+        selectedItem = itemValue
     }
 }
 struct ImagePicker: UIViewControllerRepresentable {
@@ -248,10 +303,12 @@ struct LocalSearchViewData: Identifiable {
     var id = UUID()
     var title: String
     var subtitle: String
+    var coordinate: CLLocationCoordinate2D
     
     init(mapItem: MKMapItem) {
         self.title = mapItem.name ?? ""
         self.subtitle = mapItem.placemark.title ?? ""
+        self.coordinate = mapItem.placemark.coordinate
     }
 }
 

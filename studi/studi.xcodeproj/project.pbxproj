@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		DF46E4852AF2AFB10038AA11 /* studi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF46E4882AF2AFB10038AA11 /* studiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studiApp.swift; sourceTree = "<group>"; };
-		DF46E48A2AF2AFB10038AA11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DF46E48A2AF2AFB10038AA11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 3; };
 		DF46E48C2AF2AFB20038AA11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF46E48E2AF2AFB20038AA11 /* studi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = studi.entitlements; sourceTree = "<group>"; };
 		DF46E4902AF2AFB20038AA11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };

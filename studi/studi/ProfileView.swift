@@ -141,6 +141,7 @@ struct ProfileView: View {
             loadWeeklyStudySessions()
         }
         .background(Color(.systemGroupedBackground))
+        .navigationBarTitle("Your Profile", displayMode: .inline)
 
     }
     
