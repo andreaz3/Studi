@@ -12,9 +12,14 @@ struct Review: Identifiable, Decodable {
     var description: String
 }
 
-var reviews: [Review] = [
-    Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 4.5, noiseLevelRating: 3.0, foodRating: 4.0, drinkRating: 5.0, imageURL: "https://example.com/image1.jpg", description: "Great spot with strong wifi and delicious coffee!"),
-    Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 3.5, noiseLevelRating: 2.5, foodRating: 3.0, drinkRating: 4.5, imageURL: "https://example.com/image2.jpg", description: "Cozy place, perfect for long study sessions.")
+var reviewsByLocation: [String: [Review]] = [
+    "Grainger Library": [
+        Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 0, drinkRating: 2, imageURL: "IMG_8122", description: "Great spot with strong wifi and delicious coffee!"),
+        Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 1, drinkRating: 1, imageURL: "IMG_8121", description: "Cozy place, perfect for long study sessions.")
+    ],
+    "Cafe Paradiso": [
+        Review(id: 2, user_name: "John Doe", date: "4/19/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 1, drinkRating: 1, imageURL: "IMG_8121", description: "I love the atmosphere here. Will definitely come back!")
+    ]
 ]
 
 struct ReviewsView: View {
@@ -23,48 +28,75 @@ struct ReviewsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            
-            HStack{
+            HStack {
                 Text("\(review.date)")
-                
             }
-            HStack{
+            HStack {
                 Text("\(review.user_name)")
             }
             HStack {
                 Image(systemName: "wifi")
                     .foregroundColor(.gray)
-                Slider(value: .constant(review.wifiRating), in: 0...5)
+                    .frame(width: 25, height: 25)
+                Text("Weak")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+                Slider(value: .constant(review.wifiRating), in: 0...2)
+                Text("Strong")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
             }
             HStack {
                 Image(systemName: "speaker.wave.2")
                     .foregroundColor(.gray)
-                Slider(value: .constant(review.noiseLevelRating), in: 0...5)
+                    .frame(width: 25, height: 25)
+                Text("Quiet")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+                Slider(value: .constant(review.noiseLevelRating), in: 0...2)
+                Text("Loud")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
             }
             HStack {
                 Image(systemName: "fork.knife")
                     .foregroundColor(.gray)
-                Slider(value: .constant(review.foodRating), in: 0...5)
+                    .frame(width: 25, height: 25)
+                Text("Bad")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+                Slider(value: .constant(review.foodRating), in: 0...2)
+                Text("Good")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
             }
             HStack {
                 Image(systemName: "cup.and.saucer")
                     .foregroundColor(.gray)
-                Slider(value: .constant(review.drinkRating), in: 0...5)
+                    .frame(width: 25, height: 25)
+                Text("Bad")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+                Slider(value: .constant(review.drinkRating), in: 0...2)
+                Text("Good")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
             }
-            AsyncImage(url: URL(string: review.imageURL)) { image in
-                image.resizable()
-            } placeholder: {
-                Color.gray
-            }
-            .frame(height: 200)
             
             // Apply styling to the description
             Text(review.description)
                 .padding(10)
-                .background(Color.accentColor)
+                .background(Color(red: 84 / 255, green: 128 / 255, blue: 140 / 255))
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .frame(maxWidth: .infinity)
+
+            
+            if !review.imageURL.isEmpty { Image(review.imageURL)
+                    .resizable()
+                    .frame(height: 200)
+            }
+            
         }
         .padding()
         .background(Color.white)
@@ -88,6 +120,7 @@ struct ReviewsView: View {
         )
     }
 }
+
 struct ReviewsListView: View {
     var body: some View {
         ScrollView {
@@ -95,18 +128,19 @@ struct ReviewsListView: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 25).foregroundColor(.gray)
-                VStack{
-                    ScrollView {
-                        ForEach(reviews) { review in
-                            ReviewsView(review: review)
-                                .frame(maxWidth: .infinity)
-                                .padding(10)
-                        }
+            VStack {
+                ScrollView {
+                    ForEach(reviewsByLocation[SelectedStudySpot.name] ?? []) { review in
+                        ReviewsView(review: review)
+                            .frame(maxWidth: .infinity)
+                            .padding(10)
                     }
                 }
             }
         }
     }
+}
+
 
 struct ReviewsView_Preview: PreviewProvider {
     static var previews: some View {

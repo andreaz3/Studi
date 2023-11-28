@@ -290,8 +290,8 @@ struct ContentView: View {
                                     SelectedStudySpot = studySpot
                                 }, label: {
                                     Image(systemName: "mappin.circle.fill").resizable()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.red)
+                                        .frame(width: 25, height: 25)
+                                        .foregroundColor(.orange)
                                 })
                             }
                             

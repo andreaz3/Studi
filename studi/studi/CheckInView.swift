@@ -141,3 +141,9 @@ struct CheckInView: View {
         }
 }
 
+struct CheckInView_Preview: PreviewProvider {
+    static var previews: some View {
+        CheckInView(stopwatchViewModel: StopwatchViewModel(), isShowing: .constant(true))
+    }
+}
+

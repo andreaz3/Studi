@@ -112,6 +112,7 @@
 		DF46E4872AF2AFB10038AA11 /* studi */ = {
 			isa = PBXGroup;
 			children = (
+				EACA20622B1678ED00ADBBCF /* ReviewImages */,
 				DF9147FE2AFEC9CB00CEA13B /* Info.plist */,
 				DF46E4882AF2AFB10038AA11 /* studiApp.swift */,
 				DF46E48A2AF2AFB10038AA11 /* ContentView.swift */,
@@ -152,6 +153,13 @@
 				DF46E4A62AF2AFB20038AA11 /* studiUITestsLaunchTests.swift */,
 			);
 			path = studiUITests;
+			sourceTree = "<group>";
+		};
+		EACA20622B1678ED00ADBBCF /* ReviewImages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReviewImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
