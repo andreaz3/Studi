@@ -380,9 +380,6 @@ struct ContentView: View {
                                 .background(Color.red.opacity(0.70))
                                 .cornerRadius(8)
                         }.padding(.horizontal, 20)
-                            .alert(isPresented: $showCheckedOutAlert) {
-                                        Alert(title: Text("Checked Out!"), message: Text("Your study statistics have been successfully collected."), dismissButton: .default(Text("OK")))
-                                    }
                     } else {
                         NavigationLink(destination: CheckInView(stopwatchViewModel:stopwatchViewModel, isShowing: $isShowingCheckIn), isActive: $isShowingCheckIn) {
                             Text("Check In")
@@ -396,6 +393,8 @@ struct ContentView: View {
                     }
                     
                 }
+            }.alert(isPresented: $showCheckedOutAlert) {
+                Alert(title: Text("Checked Out!"), message: Text("Your study statistics have been successfully collected."), dismissButton: .default(Text("OK")))
             }
         }
     }
