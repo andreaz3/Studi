@@ -135,10 +135,10 @@ struct ContentView: View {
             saturdayClose: Date(),
             sundayOpen: Date(),
             sundayClose: Date(),
-            image: nil,
+            image: UIImage(named: "paradiso"),
             hasCoffee: false,
             hasFood: false,
-            noiseLevel: 0.5,
+            noiseLevel: 1.0,
             wifiLevel: 0.5
         ),
         StudySpot(
@@ -158,11 +158,11 @@ struct ContentView: View {
             saturdayClose: Date(),
             sundayOpen: Date(),
             sundayClose: Date(),
-            image: nil,
+            image: UIImage(named: "grainger"),
             hasCoffee: false,
             hasFood: false,
-            noiseLevel: 0.5,
-            wifiLevel: 0.5
+            noiseLevel: 0.2,
+            wifiLevel: 1.0
         ),
         StudySpot(
             name: "Peet's Coffee",
@@ -206,10 +206,10 @@ struct ContentView: View {
             saturdayClose: Date(),
             sundayOpen: Date(),
             sundayClose: Date(),
-            image: nil,
+            image: UIImage(named: "paradiso"),
             hasCoffee: false,
             hasFood: false,
-            noiseLevel: 0.5,
+            noiseLevel: 1.0,
             wifiLevel: 0.5
         ),
         StudySpot(
@@ -229,11 +229,11 @@ struct ContentView: View {
             saturdayClose: Date(),
             sundayOpen: Date(),
             sundayClose: Date(),
-            image: nil,
+            image: UIImage(named: "grainger"),
             hasCoffee: false,
             hasFood: false,
-            noiseLevel: 0.5,
-            wifiLevel: 0.5
+            noiseLevel: 0.2,
+            wifiLevel: 1.0
         ),
         StudySpot(
             name: "Peet's Coffee",
@@ -285,7 +285,7 @@ struct ContentView: View {
                 Map(coordinateRegion: $manager.region, showsUserLocation: true, annotationItems: filteredStudySpots) {
                         (studySpot) in
                         MapAnnotation(coordinate: studySpot.coordinate) {
-                            NavigationLink(destination: ReviewsListView(), tag:1, selection: $selection) {
+                            NavigationLink(destination: InfoView(studySpot: SelectedStudySpot), tag:1, selection: $selection) {
                                 Button(action: {  self.selection = 1
                                     SelectedStudySpot = studySpot
                                 }, label: {

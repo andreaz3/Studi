@@ -122,6 +122,7 @@ struct ReviewsView: View {
 }
 
 struct ReviewsListView: View {
+    @Binding var SelectedStudySpot: StudySpot
     var body: some View {
         ScrollView {
             Text("REVIEWS")
@@ -138,12 +139,5 @@ struct ReviewsListView: View {
                 }
             }
         }
-    }
-}
-
-
-struct ReviewsView_Preview: PreviewProvider {
-    static var previews: some View {
-        ReviewsListView()
     }
 }
