@@ -6,25 +6,68 @@ struct Review: Identifiable, Decodable {
     var date: String
     var wifiRating: Double
     var noiseLevelRating: Double
-    var foodRating: Double
-    var drinkRating: Double
+    var foodRating: Bool
+    var drinkRating: Bool
     var imageURL: String
     var description: String
 }
 
 var reviewsByLocation: [String: [Review]] = [
     "Grainger Library": [
-        Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 0, drinkRating: 2, imageURL: "IMG_8122", description: "Great spot with strong wifi and delicious coffee!"),
-        Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 1, drinkRating: 1, imageURL: "IMG_8121", description: "Cozy place, perfect for long study sessions.")
+        Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 100, noiseLevelRating: 25, foodRating: false, drinkRating: true, imageURL: "IMG_8122", description: "Great spot with strong wifi and delicious coffee!"),
+        Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 75, noiseLevelRating: 75, foodRating: false, drinkRating: false, imageURL: "IMG_8121", description: "Cozy place, perfect for long study sessions.")
     ],
     "Cafe Paradiso": [
-        Review(id: 2, user_name: "John Doe", date: "4/19/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 1, drinkRating: 1, imageURL: "IMG_8121", description: "I love the atmosphere here. Will definitely come back!")
+        Review(id: 2, user_name: "John Doe", date: "4/19/2023", wifiRating: 100, noiseLevelRating: 100, foodRating: true, drinkRating: true, imageURL: "IMG_8121", description: "I love the atmosphere here. Will definitely come back!")
     ]
 ]
 
 struct ReviewsView: View {
     var review: Review
     @State private var showingCreateReview = false
+    @State private var foodRating: Bool
+    @State private var drinkRating: Bool
+    
+    private var review_wifi_text: String {
+        switch review.wifiRating {
+        case 0..<25:
+            return "No Wifi"
+        case 25..<50:
+            return "Weak"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Good"
+        case 100 :
+            return "Fast"
+        default:
+            return "Undefined"
+        }
+    }
+    
+    private var review_noise_text: String {
+        switch review.noiseLevelRating {
+        case 0..<25:
+            return "Silent"
+        case 25..<50:
+            return "Quiet"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Noisy"
+        case 100 :
+            return "Loud"
+        default:
+            return "Undefined"
+        }
+    }
+    
+    // Initialize the @State variables with values from the Review object
+    init(review: Review) {
+        self.review = review
+        _foodRating = State(initialValue: review.foodRating)
+        _drinkRating = State(initialValue: review.drinkRating)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -34,53 +77,47 @@ struct ReviewsView: View {
             HStack {
                 Text("\(review.user_name)")
             }
-            HStack {
-                Image(systemName: "wifi")
-                    .foregroundColor(.gray)
-                    .frame(width: 25, height: 25)
-                Text("Weak")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-                Slider(value: .constant(review.wifiRating), in: 0...2)
-                Text("Strong")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
+            VStack{
+                HStack {
+                    Image(systemName: "wifi")
+                        .foregroundColor(.gray)
+                        .frame(width: 25, height: 25)
+                    Text("No Wifi")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                    Slider(value: .constant(review.wifiRating), in: 0...100)
+                    Text("Fast")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                }
+                Text(review_wifi_text)
             }
-            HStack {
-                Image(systemName: "speaker.wave.2")
-                    .foregroundColor(.gray)
-                    .frame(width: 25, height: 25)
-                Text("Quiet")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-                Slider(value: .constant(review.noiseLevelRating), in: 0...2)
-                Text("Loud")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
+            VStack{
+                HStack {
+                    Image(systemName: "speaker.wave.2")
+                        .foregroundColor(.gray)
+                        .frame(width: 25, height: 25)
+                    Text("Silent")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                    Slider(value: .constant(review.noiseLevelRating), in: 0...100)
+                    Text("Loud")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                }
+                Text(review_noise_text)
             }
             HStack {
                 Image(systemName: "fork.knife")
                     .foregroundColor(.gray)
                     .frame(width: 25, height: 25)
-                Text("Bad")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-                Slider(value: .constant(review.foodRating), in: 0...2)
-                Text("Good")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
+                Toggle("Food", isOn: $foodRating)
             }
             HStack {
                 Image(systemName: "cup.and.saucer")
                     .foregroundColor(.gray)
                     .frame(width: 25, height: 25)
-                Text("Bad")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-                Slider(value: .constant(review.drinkRating), in: 0...2)
-                Text("Good")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
+                Toggle("Coffee", isOn: $drinkRating)
             }
             
             // Apply styling to the description
@@ -140,7 +177,6 @@ struct ReviewsListView: View {
         }
     }
 }
-
 
 struct ReviewsView_Preview: PreviewProvider {
     static var previews: some View {
