@@ -22,6 +22,7 @@ struct CreateStudySpotView: View {
     @State private var hasFood = false
     @State private var wifiStrength = 0.5
     @State private var noiseLevel = 0.5
+    @State private var showStudySpotExists = false
     
     // Define a struct to hold the open and close times for each day
     struct DayHours {
@@ -128,6 +129,12 @@ struct CreateStudySpotView: View {
                                 }
                                 Section {
                                     Button("Submit") {
+                                        for studySpot in studySpots {
+                                            if studySpot.name == selectedItem.title {
+                                                showStudySpotExists = true
+                                                isShowing = false
+                                            }
+                                        }
                                         let newStudySpot = StudySpot(
                                             name: selectedItem.title,
                                             coordinate: selectedItem.coordinate,
@@ -178,6 +185,9 @@ struct CreateStudySpotView: View {
             .padding(.horizontal)
             .padding(.top)
             .ignoresSafeArea(edges: .bottom)
+            .alert(isPresented: $showStudySpotExists) {
+                Alert(title: Text((selectedItem?.title ?? "Study Spot") + " Already Exists"), message: Text("Your created study spot already exists. Please upload a new study spot."), dismissButton: .default(Text("OK")))
+            }
         }.navigationBarTitle("Add New Study Spot", displayMode: .inline)
     }
     func loadImage() {
