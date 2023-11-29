@@ -31,7 +31,6 @@ struct ProfileView: View {
                     .clipShape(Circle())
                     .padding(20)
                 Text("Username").font(.title)
-                Text("\(stopwatchViewModel.stopwatchTimeInSeconds)")
             }.frame(maxWidth:.infinity, alignment:.leading)
                 .padding(.horizontal)
             Text("HOURS STUDIED")
