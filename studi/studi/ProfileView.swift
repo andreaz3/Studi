@@ -1,5 +1,6 @@
 import SwiftUI
 import Charts
+import Foundation
 
 struct StudySession: Identifiable {
     let id = UUID()
@@ -15,24 +16,43 @@ struct LocationHours: Identifiable {
 
 struct ProfileView: View {
     
-    @State private var allStudySessions = [
-        // Week 1 data
-        [StudySession(date: Calendar.current.date(byAdding: .day, value: -14, to: Date())!, hours: 1),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -13, to: Date())!, hours: 2),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -12, to: Date())!, hours: 3),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -11, to: Date())!, hours: 4),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -10, to: Date())!, hours: 5),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -9, to: Date())!, hours: 2),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -8, to: Date())!, hours: 1)],
-        // Week 2 data
-        [StudySession(date: Calendar.current.date(byAdding: .day, value: -7, to: Date())!, hours: 2),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -6, to: Date())!, hours: 1),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -5, to: Date())!, hours: 3),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -4, to: Date())!, hours: 4),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -3, to: Date())!, hours: 5),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, hours: 6),
-         StudySession(date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, hours: 3)]
-    ]
+    static let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter
+        }()
+    
+    @State private var allStudySessions: [Date: Int] = [
+            dateFormatter.date(from: "2023-11-01")!: 2,
+            dateFormatter.date(from: "2023-11-02")!: 3,
+            dateFormatter.date(from: "2023-11-03")!: 1,
+            dateFormatter.date(from: "2023-11-04")!: 4,
+            dateFormatter.date(from: "2023-11-05")!: 2,
+            dateFormatter.date(from: "2023-11-06")!: 3,
+            dateFormatter.date(from: "2023-11-07")!: 1,
+            dateFormatter.date(from: "2023-11-08")!: 4,
+            dateFormatter.date(from: "2023-11-09")!: 2,
+            dateFormatter.date(from: "2023-11-10")!: 3,
+            dateFormatter.date(from: "2023-11-11")!: 1,
+            dateFormatter.date(from: "2023-11-12")!: 4,
+            dateFormatter.date(from: "2023-11-13")!: 2,
+            dateFormatter.date(from: "2023-11-14")!: 3,
+            dateFormatter.date(from: "2023-11-15")!: 1,
+            dateFormatter.date(from: "2023-11-16")!: 4,
+//            dateFormatter.date(from: "2023-11-17")!: 2,
+            dateFormatter.date(from: "2023-11-18")!: 3,
+            dateFormatter.date(from: "2023-11-19")!: 1,
+            dateFormatter.date(from: "2023-11-20")!: 4,
+            dateFormatter.date(from: "2023-11-21")!: 2,
+            dateFormatter.date(from: "2023-11-22")!: 5,
+            dateFormatter.date(from: "2023-11-23")!: 2,
+            dateFormatter.date(from: "2023-11-24")!: 6,
+            dateFormatter.date(from: "2023-11-25")!: 1,
+            dateFormatter.date(from: "2023-11-26")!: 2,
+//            dateFormatter.date(from: "2023-11-27")!: 2,
+            dateFormatter.date(from: "2023-11-28")!: 3,
+//            dateFormatter.date(from: "2023-11-29")!: 2,
+        ]
     
     // This should be sorted
     @State private var myLocationHours = [
@@ -41,8 +61,10 @@ struct ProfileView: View {
         LocationHours(name: "Pyschology Building", hours:4)
     ]
     
+    @ObservedObject var stopwatchViewModel: StopwatchViewModel
+    
     @State private var weeklyStudySessions: [StudySession] = []
-    @State private var currentWeekIndex = 1 // Start with the most recent week
+    @State private var currentWeekIndex = 0 // Start with the most recent week
     
     private var dateRangeText: String {
         if let firstDate = weeklyStudySessions.first?.date,
@@ -63,8 +85,9 @@ struct ProfileView: View {
                     .clipShape(Circle())
                     .padding(20)
                 Text("Username").font(.title)
+                Text("\(stopwatchViewModel.stopwatchTimeInSeconds)")
             }.frame(maxWidth:.infinity, alignment:.leading)
-                .padding(20)
+                .padding(.horizontal)
             Text("HOURS STUDIED")
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -105,8 +128,8 @@ struct ProfileView: View {
             HStack {
                 Button(action: {
                     // Go to previous week
-                    if currentWeekIndex > 0 {
-                        currentWeekIndex -= 1
+                    if currentWeekIndex < allStudySessions.count - 1 {
+                        currentWeekIndex += 1
                         loadWeeklyStudySessions()
                     }
                 }) {
@@ -117,8 +140,8 @@ struct ProfileView: View {
 
                 Button(action: {
                     // Go to next week
-                    if currentWeekIndex < allStudySessions.count - 1 {
-                        currentWeekIndex += 1
+                    if currentWeekIndex > 0 {
+                        currentWeekIndex -= 1
                         loadWeeklyStudySessions()
                     }
                 }) {
@@ -146,13 +169,36 @@ struct ProfileView: View {
     }
     
     // Function to load study sessions for the current week
+//    private func loadWeeklyStudySessions() {
+//        weeklyStudySessions = allStudySessions[currentWeekIndex]
+//    }
     private func loadWeeklyStudySessions() {
-        weeklyStudySessions = allStudySessions[currentWeekIndex]
+        weeklyStudySessions = []
+
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+
+        // Calculate the start of the current week
+        let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
+
+        // Calculate the start of the week based on currentWeekIndex
+        guard let startOfWeek = calendar.date(byAdding: .weekOfYear, value: -currentWeekIndex, to: weekStart) else { return }
+
+        // Loop through each day of the week
+        for dayOffset in 0..<7 {
+            guard let specificDate = calendar.date(byAdding: .day, value: dayOffset, to: startOfWeek) else { continue }
+
+            // Check if there is data for this date, otherwise use 0
+            let hoursStudied = allStudySessions[specificDate] ?? 0
+
+            // Add this study session
+            weeklyStudySessions.append(StudySession(date: specificDate, hours: hoursStudied))
+        }
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(stopwatchViewModel: StopwatchViewModel())
     }
 }
