@@ -16,10 +16,62 @@ struct CheckInView: View {
     
     @State private var noiseLevel = 50.0
     @State private var capLevel = 50.0
+    @State private var wifiLevel = 50.0
     
     @ObservedObject var stopwatchViewModel: StopwatchViewModel
     
     @Binding var isShowing: Bool
+    
+    var noiseLevelCategory: String {
+        switch noiseLevel {
+        case 0..<25:
+            return "Silent"
+        case 25..<50:
+            return "Quiet"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Noisy"
+        case 100 :
+            return "Loud"
+        default:
+            return "Undefined"
+        }
+    }
+    
+    var capLevelCateogry: String {
+        switch capLevel {
+        case 0..<25:
+            return "Empty"
+        case 25..<50:
+            return "Sparse"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Crowded"
+        case 100 :
+            return "Full"
+        default:
+            return "Undefined"
+        }
+    }
+    
+    var wifiLevelCateogry: String {
+        switch wifiLevel {
+        case 0..<25:
+            return "No Wifi"
+        case 25..<50:
+            return "Weak"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Good"
+        case 100 :
+            return "Fast"
+        default:
+            return "Undefined"
+        }
+    }
     
     var body: some View {
 
@@ -33,9 +85,9 @@ struct CheckInView: View {
                 }
             VStack {
                 VStack{
-                    // TODO: maybe use PETER's search UI instead
+                    Text(selectedItem == nil ? "First, select a location" : "").frame(maxWidth: .infinity, alignment: .leading).padding()
                     TextField(selectedItem == nil ? "Search for a location" : "Search for a different location", text: $searchQuery)
-                        .padding()
+                        .padding(.horizontal)
                         .onTapGesture {
                             isDropdownVisible = true
                         }
@@ -45,37 +97,36 @@ struct CheckInView: View {
 
                     if let selectedItem = selectedItem {
                         VStack{
-                            Text("Location").font(.title2).frame(maxWidth:.infinity, alignment:.leading)
                             Text("\(selectedItem)")
                                 .font(.title)
-                                .frame(maxWidth:.infinity, alignment:.leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fixedSize(horizontal: false, vertical: true) // Ensure that it can grow vertically
                                 .padding(5)
                         }.padding(20)
                     }
-                }
+                }.padding(.vertical)
                 
                 VStack {
                     Text("Noise Level").font(.title3).frame(maxWidth:.infinity, alignment:.leading)
                     Slider(
                         value: $noiseLevel,
                         in: 0...100,
-                        step: 5
+                        step: 25
                     ) {
                         Text("Speed")
                     } minimumValueLabel: {
-                        Text("Quiet")
+                        Text("Silent")
                     } maximumValueLabel: {
                         Text("Loud")
                     }.disabled(selectedItem == nil || stopwatchViewModel.isStopwatchRunning == true)
-                    // Do we want to allow them to record the value ?
-                    //                Text("\(level)")
-                }.padding(20)
+                    Text(noiseLevelCategory)
+                }.padding(.horizontal)
                 VStack {
                     Text("Capacity").font(.title3).frame(maxWidth:.infinity, alignment:.leading)
                     Slider(
                         value: $capLevel,
                         in: 0...100,
-                        step: 5
+                        step: 25
                     ) {
                         Text("Speed")
                     } minimumValueLabel: {
@@ -83,8 +134,25 @@ struct CheckInView: View {
                     } maximumValueLabel: {
                         Text("Full")
                     }.disabled(selectedItem == nil || stopwatchViewModel.isStopwatchRunning == true)
-                }.padding(20)
+                    Text(capLevelCateogry)
+
+                }.padding(.horizontal)
                 
+                VStack {
+                    Text("Wifi").font(.title3).frame(maxWidth:.infinity, alignment:.leading)
+                    Slider(
+                        value: $wifiLevel,
+                        in: 0...100,
+                        step: 25
+                    ) {
+                        Text("Speed")
+                    } minimumValueLabel: {
+                        Text("No Wifi")
+                    } maximumValueLabel: {
+                        Text("Fast")
+                    }.disabled(selectedItem == nil || stopwatchViewModel.isStopwatchRunning == true)
+                    Text(wifiLevelCateogry)
+                }.padding(.horizontal)
                 VStack {
                     Text(timeFormatted(stopwatchViewModel.stopwatchTimeInSeconds))
                         .font(.largeTitle)
@@ -103,7 +171,9 @@ struct CheckInView: View {
                     }
                 }
                 
-            }
+            }.padding(20)
+            
+            
             if isDropdownVisible {
                 List(filteredItems, id: \.self) { item in
                     Text(item)

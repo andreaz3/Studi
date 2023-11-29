@@ -332,7 +332,7 @@ struct ContentView: View {
 //                            .shadow(radius: 4)
 //                        }
                         Spacer() // Pushes the next view to the right
-                        NavigationLink(destination: ProfileView()) {
+                        NavigationLink(destination: ProfileView(stopwatchViewModel:stopwatchViewModel)) {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
                                 .frame(width: 50, height: 50)
