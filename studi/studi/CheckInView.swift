@@ -160,6 +160,7 @@ struct CheckInView: View {
                     
                     Button(action: {
                         stopwatchViewModel.startStopwatch()
+                        stopwatchViewModel.checkInLocation = selectedItem
                         isShowing = false
                     }) {
                         Text(stopwatchViewModel.isStopwatchRunning ? "Check Out" : "Check In")
@@ -167,8 +168,7 @@ struct CheckInView: View {
                             .padding()
                             .background(selectedItem == nil ? Color.gray : (stopwatchViewModel.isStopwatchRunning ? Color.red : Color.green))
                             .cornerRadius(10)
-                        
-                    }
+                    }.disabled(selectedItem == nil)
                 }
                 
             }.padding(20)

@@ -63,6 +63,18 @@ var SelectedStudySpot: StudySpot = StudySpot(
     wifiLevel: 0.5
 )
 
+struct StudySession: Identifiable {
+    let id = UUID()
+    let date: Date
+    let hours: Int
+}
+
+struct LocationHours: Identifiable {
+    let id = UUID()
+    let name: String
+    let hours: Int
+}
+
 final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     
@@ -265,6 +277,54 @@ struct ContentView: View {
     var reviews = {}
     var userMetrics = {}
     
+    
+    
+    // PROFILE DATA
+    
+    static let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter
+        }()
+    
+    @State private var allStudySessions: [Date: Int] = [
+            dateFormatter.date(from: "2023-11-01")!: 2,
+            dateFormatter.date(from: "2023-11-02")!: 3,
+            dateFormatter.date(from: "2023-11-03")!: 1,
+            dateFormatter.date(from: "2023-11-04")!: 4,
+            dateFormatter.date(from: "2023-11-05")!: 2,
+            dateFormatter.date(from: "2023-11-06")!: 3,
+            dateFormatter.date(from: "2023-11-07")!: 1,
+            dateFormatter.date(from: "2023-11-08")!: 4,
+            dateFormatter.date(from: "2023-11-09")!: 2,
+            dateFormatter.date(from: "2023-11-10")!: 3,
+            dateFormatter.date(from: "2023-11-11")!: 1,
+            dateFormatter.date(from: "2023-11-12")!: 4,
+            dateFormatter.date(from: "2023-11-13")!: 2,
+            dateFormatter.date(from: "2023-11-14")!: 3,
+            dateFormatter.date(from: "2023-11-15")!: 1,
+            dateFormatter.date(from: "2023-11-16")!: 4,
+//            dateFormatter.date(from: "2023-11-17")!: 2,
+            dateFormatter.date(from: "2023-11-18")!: 3,
+            dateFormatter.date(from: "2023-11-19")!: 1,
+            dateFormatter.date(from: "2023-11-20")!: 4,
+            dateFormatter.date(from: "2023-11-21")!: 2,
+            dateFormatter.date(from: "2023-11-22")!: 5,
+            dateFormatter.date(from: "2023-11-23")!: 2,
+            dateFormatter.date(from: "2023-11-24")!: 6,
+            dateFormatter.date(from: "2023-11-25")!: 1,
+            dateFormatter.date(from: "2023-11-26")!: 2,
+//            dateFormatter.date(from: "2023-11-27")!: 2,
+            dateFormatter.date(from: "2023-11-28")!: 3,
+//            dateFormatter.date(from: "2023-11-29")!: 2,
+        ]
+    
+    @State private var myLocationHours: [String: Int] = [
+        "Campus Instruction Facility": 20,
+        "Grainger Engineering Library": 15,
+        "Pyschology Building": 4
+    ]
+    
     @StateObject var manager = LocationManager()
     @State private var showActionSheet = false
     @State private var navigateTo: Int? = nil
@@ -332,7 +392,7 @@ struct ContentView: View {
 //                            .shadow(radius: 4)
 //                        }
                         Spacer() // Pushes the next view to the right
-                        NavigationLink(destination: ProfileView(stopwatchViewModel:stopwatchViewModel)) {
+                        NavigationLink(destination: ProfileView(allStudySessions:$allStudySessions,myLocationHours:$myLocationHours, stopwatchViewModel:stopwatchViewModel)) {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
                                 .frame(width: 50, height: 50)
@@ -370,6 +430,7 @@ struct ContentView: View {
                     }.padding(20)
                     if stopwatchViewModel.isStopwatchRunning == true {
                         Button(action: {
+                            addStudyStats()
                             stopwatchViewModel.stopStopwatch()
                             showCheckedOutAlert = true
                         }) {
@@ -407,6 +468,19 @@ struct ContentView: View {
             }
         }
     }
+    
+    func addStudyStats() {
+        let today = Calendar.current.startOfDay(for: Date())
+        allStudySessions[today, default: 0] += stopwatchViewModel.stopwatchTimeInSeconds
+        if let location = stopwatchViewModel.checkInLocation {
+            myLocationHours[location, default: 0] += stopwatchViewModel.stopwatchTimeInSeconds
+        } else {
+            // This should never happen
+            print("Error: No Location Selected")
+        }
+        
+        
+    }
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -419,7 +493,7 @@ class StopwatchViewModel: ObservableObject {
     @Published var stopwatchTimeInSeconds: Int = 0
     @Published var timer = Timer()
     @Published var isStopwatchRunning: Bool = false
-    @Published var checkInLocation: StudySpot?
+    @Published var checkInLocation: String?
 
     func startStopwatch() {
         stopwatchTimeInSeconds = 0
