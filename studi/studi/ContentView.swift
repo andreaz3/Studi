@@ -119,7 +119,7 @@ extension LocationManager: CLLocationManagerDelegate {
 struct ContentView: View {
     @State var studySpots:[StudySpot] = [
         StudySpot(
-            name: "Cafe Paradiso",
+            name: "Caffe Paradiso",
             coordinate: CLLocationCoordinate2D(latitude: 40.106205435739792, longitude: -88.21924183863197),
             mondayOpen: Date(),
             mondayClose: Date(),
@@ -142,7 +142,7 @@ struct ContentView: View {
             wifiLevel: 0.5
         ),
         StudySpot(
-            name: "Grainger Library",
+            name: "Grainger Engineering Library",
             coordinate: CLLocationCoordinate2D(latitude: 40.11345149750377, longitude: -88.2269172),
             mondayOpen: Date(),
             mondayClose: Date(),
@@ -190,7 +190,7 @@ struct ContentView: View {
     ]
     @State var filteredStudySpots:[StudySpot] = [
         StudySpot(
-            name: "Cafe Paradiso",
+            name: "Caffe Paradiso",
             coordinate: CLLocationCoordinate2D(latitude: 40.106205435739792, longitude: -88.21924183863197),
             mondayOpen: Date(),
             mondayClose: Date(),
@@ -213,7 +213,7 @@ struct ContentView: View {
             wifiLevel: 0.5
         ),
         StudySpot(
-            name: "Grainger Library",
+            name: "Grainger Engineering Library",
             coordinate: CLLocationCoordinate2D(latitude: 40.11345149750377, longitude: -88.2269172),
             mondayOpen: Date(),
             mondayClose: Date(),

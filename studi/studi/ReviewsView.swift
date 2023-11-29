@@ -13,11 +13,11 @@ struct Review: Identifiable, Decodable {
 }
 
 var reviewsByLocation: [String: [Review]] = [
-    "Grainger Library": [
+    "Grainger Engineering Library": [
         Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 0, drinkRating: 2, imageURL: "IMG_8122", description: "Great spot with strong wifi and delicious coffee!"),
         Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 1, drinkRating: 1, imageURL: "IMG_8121", description: "Cozy place, perfect for long study sessions.")
     ],
-    "Cafe Paradiso": [
+    "Caffe Paradiso": [
         Review(id: 2, user_name: "John Doe", date: "4/19/2023", wifiRating: 2, noiseLevelRating: 1, foodRating: 1, drinkRating: 1, imageURL: "IMG_8121", description: "I love the atmosphere here. Will definitely come back!")
     ]
 ]
