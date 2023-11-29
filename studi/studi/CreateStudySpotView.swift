@@ -45,7 +45,7 @@ struct CreateStudySpotView: View {
             case 0:
                 return "No WiFi"
             case 0.5:
-                return "Unreliable WiFi"
+                return "None"
             default:
                 return "Great WiFi"
             }
@@ -73,18 +73,34 @@ struct CreateStudySpotView: View {
                             }
                             
                             Section {
-                                HStack {
-                                    Text("WiFi")
-                                    Slider(value: $wifiStrength, in: 0...1, step: 0.5)
-                                        .accentColor(.black)
-                                    Text(wifiLevelText).frame(width:100, alignment: .leading)
-                                }
-                                HStack {
-                                    Text("Noise")
-                                    Slider(value: $noiseLevel, in: 0...1, step: 0.5)
-                                        .accentColor(.black)
-                                    Text(noiseLevelText).frame(width:100, alignment: .leading)
-                                }
+                                VStack {
+                                    Text("WiFi").font(.title3).frame(maxWidth:.infinity, alignment:.leading)
+                                    Slider(
+                                        value: $wifiStrength,
+                                        in: 0...100,
+                                        step: 5
+                                    ) {
+                                        Text("Speed ")
+                                    } minimumValueLabel: {
+                                        Text("None")
+                                    } maximumValueLabel: {
+                                        Text("Great")
+                                    }
+                                }.padding(20)
+                                VStack {
+                                    Text("Noise").font(.title3).frame(maxWidth:.infinity, alignment:.leading)
+                                    Slider(
+                                        value: $noiseLevel,
+                                        in: 0...100,
+                                        step: 5
+                                    ) {
+                                        Text("Speed")
+                                    } minimumValueLabel: {
+                                        Text("Silent")
+                                    } maximumValueLabel: {
+                                        Text("Loud")
+                                    }
+                                }.padding(20)
                             }
                             
                             Section {
@@ -135,32 +151,35 @@ struct CreateStudySpotView: View {
                                                 isShowing = false
                                             }
                                         }
-                                        let newStudySpot = StudySpot(
-                                            name: selectedItem.title,
-                                            coordinate: selectedItem.coordinate,
-                                            mondayOpen: weekHours[0].openTime,
-                                            mondayClose: weekHours[0].closeTime,
-                                            tuesdayOpen: weekHours[1].openTime,
-                                            tuesdayClose: weekHours[1].closeTime,
-                                            wednesdayOpen: weekHours[2].openTime,
-                                            wednesdayClose: weekHours[2].closeTime,
-                                            thursdayOpen: weekHours[3].openTime,
-                                            thursdayClose: weekHours[3].closeTime,
-                                            fridayOpen: weekHours[4].openTime,
-                                            fridayClose: weekHours[4].closeTime,
-                                            saturdayOpen: weekHours[5].openTime,
-                                            saturdayClose: weekHours[5].closeTime,
-                                            sundayOpen: weekHours[6].openTime,
-                                            sundayClose: weekHours[6].closeTime,
-                                            image: inputImage,
-                                            hasCoffee: hasCoffee,
-                                            hasFood: hasFood,
-                                            noiseLevel: noiseLevel,
-                                            wifiLevel: wifiStrength
-                                        )
-                                        isShowing = false
-                                        studySpots.append(newStudySpot)
-                                        filteredStudySpots.append(newStudySpot)
+                                        if showStudySpotExists == false {
+                                            let newStudySpot = StudySpot(
+                                                name: selectedItem.title,
+                                                coordinate: selectedItem.coordinate,
+                                                mondayOpen: weekHours[0].openTime,
+                                                mondayClose: weekHours[0].closeTime,
+                                                tuesdayOpen: weekHours[1].openTime,
+                                                tuesdayClose: weekHours[1].closeTime,
+                                                wednesdayOpen: weekHours[2].openTime,
+                                                wednesdayClose: weekHours[2].closeTime,
+                                                thursdayOpen: weekHours[3].openTime,
+                                                thursdayClose: weekHours[3].closeTime,
+                                                fridayOpen: weekHours[4].openTime,
+                                                fridayClose: weekHours[4].closeTime,
+                                                saturdayOpen: weekHours[5].openTime,
+                                                saturdayClose: weekHours[5].closeTime,
+                                                sundayOpen: weekHours[6].openTime,
+                                                sundayClose: weekHours[6].closeTime,
+                                                image: inputImage,
+                                                hasCoffee: hasCoffee,
+                                                hasFood: hasFood,
+                                                noiseLevel: noiseLevel,
+                                                wifiLevel: wifiStrength
+                                            )
+                                            isShowing = false
+                                            studySpots.append(newStudySpot)
+                                            filteredStudySpots.append(newStudySpot)
+                                            reviewsByLocation[selectedItem.title] = []
+                                        }
                                     }
                                 }
                             }
