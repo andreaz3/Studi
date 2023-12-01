@@ -55,6 +55,40 @@ struct CreateStudySpotView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     
+    private var review_wifi_text: String {
+        switch wifiStrength {
+        case 0..<25:
+            return "No Wifi"
+        case 25..<50:
+            return "Weak"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Good"
+        case 100 :
+            return "Fast"
+        default:
+            return "Undefined"
+        }
+    }
+    
+    private var review_noise_text: String {
+        switch noiseLevel {
+        case 0..<25:
+            return "Silent"
+        case 25..<50:
+            return "Quiet"
+        case 50..<75:
+            return "Medium"
+        case 75..<100:
+            return "Noisy"
+        case 100 :
+            return "Loud"
+        default:
+            return "Undefined"
+        }
+    }
+    
     // An array to hold the open and close times for each day of the week
     @State private var weekHours: [DayHours] = Array(repeating: DayHours(openTime: Date(), closeTime: Date()), count: 7)
     private let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -78,21 +112,22 @@ struct CreateStudySpotView: View {
                                     Slider(
                                         value: $wifiStrength,
                                         in: 0...100,
-                                        step: 5
+                                        step: 25
                                     ) {
                                         Text("Speed ")
                                     } minimumValueLabel: {
-                                        Text("None")
+                                        Text("No Wifi")
                                     } maximumValueLabel: {
-                                        Text("Great")
+                                        Text("Fast")
                                     }
+                                    Text(review_wifi_text)
                                 }.padding(20)
                                 VStack {
                                     Text("Noise").font(.title3).frame(maxWidth:.infinity, alignment:.leading)
                                     Slider(
                                         value: $noiseLevel,
                                         in: 0...100,
-                                        step: 5
+                                        step: 25
                                     ) {
                                         Text("Speed")
                                     } minimumValueLabel: {
@@ -100,6 +135,8 @@ struct CreateStudySpotView: View {
                                     } maximumValueLabel: {
                                         Text("Loud")
                                     }
+                                    Text(review_noise_text)
+
                                 }.padding(20)
                             }
                             

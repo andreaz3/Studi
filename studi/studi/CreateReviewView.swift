@@ -51,11 +51,11 @@ struct CreateReviewView: View {
                             Image(systemName: "wifi")
                                 .foregroundColor(.gray)
                                 .frame(width: 25, height: 25) // Adjust the size of the icon
-                            Text("Weak")
+                            Text("No Wifi")
                                 .font(.subheadline) // Make the text slightly smaller
                                 .foregroundColor(.primary)
                             Slider(value: $wifiStrength, in: 0...100, step: 25)
-                            Text("Strong")
+                            Text("Fast")
                                 .font(.subheadline)
                                 .foregroundColor(.primary)
                         }

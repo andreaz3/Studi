@@ -14,11 +14,11 @@ struct Review: Identifiable, Decodable {
 
 var reviewsByLocation: [String: [Review]] = [
     "Grainger Engineering Library": [
-        Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 100, noiseLevelRating: 25, foodRating: false, drinkRating: true, imageURL: "IMG_8122", description: "Great spot with strong wifi and delicious coffee!"),
-        Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 75, noiseLevelRating: 75, foodRating: false, drinkRating: false, imageURL: "IMG_8121", description: "Cozy place, perfect for long study sessions.")
+        Review(id: 1, user_name: "Ali Husain", date: "10/10/2023", wifiRating: 100, noiseLevelRating: 25, foodRating: false, drinkRating: true, imageURL: "grainger main", description: "Great spot with strong wifi and delicious coffee!"),
+        Review(id: 2, user_name: "Wendy Shi", date: "4/19/2023", wifiRating: 75, noiseLevelRating: 75, foodRating: false, drinkRating: false, imageURL: "grainger stairs", description: "Cozy place, perfect for long study sessions.")
     ],
     "Caffe Paradiso": [
-        Review(id: 2, user_name: "John Doe", date: "4/19/2023", wifiRating: 100, noiseLevelRating: 100, foodRating: true, drinkRating: true, imageURL: "IMG_8121", description: "I love the atmosphere here. Will definitely come back!")
+        Review(id: 2, user_name: "John Doe", date: "4/19/2023", wifiRating: 100, noiseLevelRating: 100, foodRating: true, drinkRating: true, imageURL: "paradiso", description: "I love the atmosphere here. Will definitely come back!")
     ]
 ]
 
@@ -165,16 +165,26 @@ struct ReviewsListView: View {
             Text("REVIEWS")
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 25).foregroundColor(.gray)
+                .padding(.leading, 25)
+                .foregroundColor(.gray)
+            
             VStack {
                 ScrollView {
-                    ForEach(reviewsByLocation[SelectedStudySpot.name] ?? []) { review in
-                        ReviewsView(review: review)
+                    if let reviews = reviewsByLocation[SelectedStudySpot.name], !reviews.isEmpty {
+                        ForEach(reviews) { review in
+                            ReviewsView(review: review)
+                                .frame(maxWidth: .infinity)
+                                .padding(10)
+                        }
+                    } else {
+                        Text("No reviews")
                             .frame(maxWidth: .infinity)
                             .padding(10)
+                            .foregroundColor(.gray)
                     }
                 }
             }
         }
     }
 }
+
